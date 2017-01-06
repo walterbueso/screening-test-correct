@@ -42,8 +42,6 @@ namespace berndt_screening_test
 
             }
 
-            System.Console.WriteLine("Final count------{0}", ips.Count);
-
             var s = ips.OrderByDescending(Version.Parse)
                  .GroupBy(x => x)
                  .Select(g => new { Value = g.Key, Count = g.Count() })
@@ -53,34 +51,6 @@ namespace berndt_screening_test
             {
                 Console.WriteLine("{0}, \"{1}\"", i.Count, i.Value);
             }
-
-
-            //var s = ips.GroupBy(x => x)
-            //    .Select(g => new { Value = g.Key, Count = g.Count() })
-            //    .OrderByDescending(x => x.Count)
-            //    .Where(x => x.Count > 1);
-
-          
-            //var sort = ips.OrderByDescending(Version.Parse).Distinct().ToList();
-
-
-            //StringBuilder csvcontent = new StringBuilder();
-
-            ////Format requested from read.me
-            //foreach (var x in s)
-            //{
-            //    Console.WriteLine("{0}, \"{1}\"", x.Count, x.Value);
-            //    csvcontent.AppendLine(x.Count + "," + x.Value);
-              
-            //}
-           
-            //foreach (var i in sort)
-            //{
-            //    Console.WriteLine("1, {0}", i);
-            //    csvcontent.AppendLine("1," + i);
-            //}
-
-            //File.AppendAllText(csvpath, csvcontent.ToString());
 
             file.Dispose();
         }
